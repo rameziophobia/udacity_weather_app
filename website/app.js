@@ -19,7 +19,7 @@ const fetchWeather = (zipCode, feelings) => {
         .then(response => {
             data = {
                 date: getCurrentDate(),
-                temperature: response.main.temp,
+                temperature: response.main.temp + " degrees celcius",
                 feelings: feelings,
             }
 
@@ -28,6 +28,12 @@ const fetchWeather = (zipCode, feelings) => {
                 .then(json)
                 .then(serverData => updateUI(serverData));
 
+        }).catch(err => {
+            updateUI({
+                date: getCurrentDate(),
+                temperature: "an error has occured in getting weather data",
+                feelings: feelings
+            });
         })
 }
 
@@ -56,5 +62,5 @@ const postData = (url, data) => {
 const updateUI = (data) => {
     document.getElementById('date').innerHTML = data.date;
     document.getElementById('temp').innerHTML = data.temperature;
-    document.getElementById('content').innerHTML = data.feelings;
+    document.getElementById('content').innerHTML = data.feelings || "please enter how you are feeling today";
 }
