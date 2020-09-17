@@ -1,6 +1,6 @@
 /* Global Variables */
 const BASE_API_URL = 'http://api.openweathermap.org/data/2.5/weather';
-const API_KEY = '709760c4e72c6e6ffa505a96d183b837';
+const API_KEY = '709760c4e72c6e6ffa505a96d183b837&units=metric';
 const LOCALHOST = 'http://localhost:3000';
 const DATA_ENDPOINT = '/data';
 
